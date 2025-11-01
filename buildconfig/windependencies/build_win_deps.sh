@@ -33,7 +33,7 @@ export AR="ar"
 # 6) make cmake use gcc/g++/make (needed on windows only)
 export PG_BASE_CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PG_DEP_PREFIX \
     -DCMAKE_INSTALL_LIBDIR:PATH=lib \
-    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_BUILD_TYPE=MinSizeRel \
     -DBUILD_SHARED_LIBS=true \
     -DCMAKE_PREFIX_PATH=$PG_DEP_PREFIX \
     -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX -DCMAKE_MAKE_PROGRAM=make"
@@ -52,7 +52,7 @@ export LDFLAGS="-L$PG_DEP_PREFIX/lib"
 
 export PG_BASE_MESON_FLAGS="--prefix=$PG_DEP_PREFIX \
     -Dlibdir=lib \
-    -Dbuildtype=release \
+    -Doptimization=s -Ddebug=false \
     -Ddefault_library=shared"
 
 # clean msys versions of dependencies we are about to build
